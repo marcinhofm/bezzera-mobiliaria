@@ -6,9 +6,9 @@
     <title>Cabral e Silva | Assessoria Financeira & Imobiliária</title>
     <style>
         :root {
-            --bg-dark: #06121e; /* Azul escuro sofisticado baseado no logo */
+            --bg-dark: #06121e; 
             --bg-card: #0b1e32;
-            --gold-primary: #d4af37; /* Dourado do logotipo */
+            --gold-primary: #d4af37; 
             --gold-hover: #b8962e;
             --text-white: #ffffff;
             --text-gray: #a4b3c6;
@@ -43,7 +43,6 @@
             z-index: 100;
         }
 
-        /* Logotipo Integrado */
         .logo-container {
             display: flex;
             align-items: center;
@@ -55,7 +54,6 @@
             font-size: 1.8rem;
             font-weight: bold;
             color: var(--gold-primary);
-            position: relative;
             line-height: 1;
         }
 
@@ -125,7 +123,6 @@
             background: radial-gradient(circle at 20% 30%, #0d2847 0%, var(--bg-dark) 70%);
         }
 
-        /* Traçado das Casas Integrado com o Plano de Fundo Azul */
         .hero::before {
             content: "";
             position: absolute;
@@ -166,7 +163,7 @@
             max-width: 600px;
         }
 
-        /* Formulário de Simulação */
+        /* Formulário */
         .simulador-box {
             background: var(--bg-card);
             padding: 3rem 2.5rem;
@@ -244,7 +241,7 @@
             transform: translateY(-2px);
         }
 
-        /* Seção Nossas Soluções */
+        /* Seção Soluções */
         .solutions {
             padding: 6rem 5%;
             border-top: 1px solid var(--border-color);
@@ -338,6 +335,10 @@
             margin-bottom: 3rem;
         }
 
+        .footer-info {
+            max-width: 400px;
+        }
+
         .footer-info h4 {
             font-size: 1.1rem;
             color: var(--text-white);
@@ -364,3 +365,8 @@
             padding-top: 2rem;
         }
 
+        @media (max-width: 768px) {
+            .hero { padding: 4rem 5%; }
+            .hero-text h1 { font-size: 2.3rem; }
+            .nav-links { display: none; }
+        }
