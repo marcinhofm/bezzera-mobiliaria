@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bezerra Santos Imobiliária | Empréstimo Consignado</title>
+    <style>
+        :root {
+            --primary: #0b3c5d;
+            --secondary: #328cc1;
+            --accent: #d9b310;
+            --success: #25d366;
+            --dark: #1d2731;
+            --light: #f9f9f9;
+            --gray: #777;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        /* Navbar */
+        nav {
+            background: white;
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .logo span {
+            color: var(--secondary);
+            font-weight: 400;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            margin-left: 2rem;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary), var(--dark));
+            color: white;
+            padding: 5rem 5%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .hero-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .hero-text h1 {
+            font-size: 2.8rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .hero-text p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        /* Formulário de Simulação */
+        .simulador-box {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            flex: 1;
+            min-width: 320px;
+            max-width: 450px;
+            color: var(--dark);
+        }
+
+        .simulador-box h3 {
+            margin-bottom: 0.3rem;
+            color: var(--primary);
+            text-align: center;
+            font-size: 1.4rem;
+        }
+
+        .simulador-box .sub-whats {
+            text-align: center;
+            font-size: 0.95rem;
+            color: var(--success);
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.2rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: var(--dark);
+        }
+
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 1rem;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus, .form-group select:focus {
+            border-color: var(--secondary);
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 1.1rem;
+            background: var(--success);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.2s;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-submit:hover {
+            background: #20ba5a;
+            transform: translateY(-2px);
+        }
+
+        /* Vantagens */
+        .vantagens {
+            padding: 5rem 5%;
+            text-align: center;
+        }
+
+        .vantagens h2 {
+            font-size: 2rem;
+            margin-bottom: 3rem;
+            color: var(--primary);
+        }
+
+        .grid-vantagens {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: white;
+            padding: 2.5rem 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-icon {
+            font-size: 2.5rem;
+            color: var(--secondary);
+            margin-bottom: 1rem;
+        }
+
+        .card h4 {
+            margin-bottom: 0.8rem;
+            font-size: 1.2rem;
+            color: var(--primary);
+        }
+
+        .card p {
+            color: var(--gray);
+            font-size: 0.95rem;
+        }
+
+        /* Quem atendemos */
+        .publico {
+            background: #f0f4f8;
+            padding: 5rem 5%;
+            text-align: center;
+        }
+
+        .publico h2 {
+            font-size: 2rem;
+            margin-bottom: 3rem;
+            color: var(--primary);
+        }
+
+        .grid-publico {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .item-publico {
+            background: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            color: var(--primary);
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        /* Botão Flutuante do WhatsApp */
+        .whatsapp-floating {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: var(--success);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            z-index: 1000;
+            transition: transform 0.3s;
+        }
+
+        .whatsapp-floating:hover {
+            transform: scale(1.1);
+        }
+
+        .whatsapp-floating svg {
+            width: 32px;
+            height: 32px;
+            fill: white;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 4rem 5% 1.5rem;
+            font-size: 0.9rem;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding-bottom: 2rem;
+        }
+
+        .footer-info {
+            max-width: 400px;
+        }
+
+        .footer-info h4 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: var(--secondary);
+        }
+
+        .footer-info p {
+            opacity: 0.8;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-info a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .footer-info a:hover {
+            text-decoration: underline;
+        }
+
+        .cnpj-info {
+            text-align: center;
+            opacity: 0.5;
+            font-size: 0.8rem;
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .hero { padding: 3rem 5%; }
+            .hero-text h1 { font-size: 2rem; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Topo / Navegação -->
+    <nav>
+        <div class="logo">Bezerra Santos <span>Imobiliária & Consignados</span></div>
+        <div class="nav-links">
+            <a href="#simulador">Simular</a>
+            <a href="#vantagens">Vantagens</a>
+            <a href="#publico">Quem Pode Contratar</a>
+        </div>
+    </nav>
+
+    <!-- Seção Principal com Formulário -->
+    <section class="hero">
+        <div class="hero-text">
+            <h1>O dinheiro que você precisa, com a tradição que você já conhece.</h1>
+            <p>A Bezerra Santos Imobiliária agora te ajuda a conquistar seus objetivos financeiros. Empréstimo consignado rápido, sem burocracia e 100% seguro.</p>
+        </div>
+
+        <div class="simulador-box" id="simulador">
+            <h3>Simule Gratuitamente</h3>
+            <div class="sub-whats">Atendimento via (13) 99763-6655</div>
+            <form id="leadForm">
+                <div class="form-group">
+                    <label for="nome">Nome Completo</label>
+                    <input type="text" id="nome" required placeholder="Digite seu nome">
+                </div>
+                <div class="form-group">
+                    <label for="whatsapp">Seu WhatsApp</label>
+                    <input type="tel" id="whatsapp" required placeholder="(13) 99999-9999">
+                </div>
+                <div class="form-group">
+                    <label for="perfil">Seu Perfil</label>
+                    <select id="perfil" required>
+                        <option value="">Selecione seu perfil...</option>
+                        <option value="Aposentado do INSS">Aposentado do INSS</option>
+                        <option value="Pensionista do INSS">Pensionista do INSS</option>
+                        <option value="Servidor Público">Servidor Público</option>
