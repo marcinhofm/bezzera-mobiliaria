@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bezerra Santos | Imobiliária & Consignados</title>
+    <style>
+        :root {
+            --bg-dark: #0a0a0a;
+            --bg-card: #141414;
+            --primary-red: #bd1a22;
+            --primary-red-hover: #961218;
+            --text-white: #ffffff;
+            --text-gray: #b3b3b3;
+            --success-green: #25d366;
+            --border-color: #262626;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Navbar */
+        nav {
+            background: var(--bg-dark);
+            padding: 1.5rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: var(--text-white);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .logo span {
+            color: var(--primary-red);
+            font-weight: 400;
+            display: block;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-gray);
+            margin-left: 2rem;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-red);
+        }
+
+        .nav-links a.btn-nav-whats {
+            background-color: var(--primary-red);
+            color: var(--text-white);
+            padding: 0.6rem 1.4rem;
+            border-radius: 4px;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+
+        .nav-links a.btn-nav-whats:hover {
+            background-color: var(--primary-red-hover);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            padding: 6rem 5%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 4rem;
+            background: radial-gradient(circle at 20% 30%, #1a0507 0%, var(--bg-dark) 70%);
+        }
+
+        /* Linhas decorativas de casas em vetor */
+        .hero::before {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://w3.org' viewBox='0 0 1200 300' fill='none' stroke='%23260a0d' stroke-width='1.5'%3E%3Cpath d='M0 300h1200M50 300V180l40-30 40 30v120M200 300V140l50-40 50 40v120h100V100l60-45 60 45v200M650 300V160l45-35 45 35v140M900 300V120l55-40 55 40v180'/%3E%3C/svg%3E");
+            background-position: bottom fill;
+            background-repeat: no-repeat;
+            background-size: cover;
+            opacity: 0.4;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .hero-text {
+            flex: 1.2;
+            min-width: 300px;
+            z-index: 2;
+        }
+
+        .hero-text h1 {
+            font-size: 3.2rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            font-weight: 800;
+        }
+
+        .hero-text h1 span {
+            color: var(--primary-red);
+        }
+
+        .hero-text p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            color: var(--text-gray);
+            max-width: 600px;
+        }
+
+        /* Formulário */
+        .simulador-box {
+            background: var(--bg-card);
+            padding: 3rem 2.5rem;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            flex: 1;
+            min-width: 320px;
+            max-width: 460px;
+            z-index: 2;
+        }
+
+        .simulador-box h3 {
+            margin-bottom: 0.5rem;
+            font-size: 1.6rem;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .simulador-box .sub-whats {
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--text-gray);
+            margin-bottom: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            font-size: 0.9rem;
+            color: var(--text-gray);
+        }
+
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 0.9rem 1rem;
+            background: #0a0a0a;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            font-size: 1rem;
+            color: var(--text-white);
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus, .form-group select:focus {
+            border-color: var(--primary-red);
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 1.1rem;
+            background: var(--success-green);
+            color: var(--text-white);
+            border: none;
+            border-radius: 4px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: transform 0.2s, background-color 0.3s;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-submit:hover {
+            background-color: #1ebe57;
+            transform: translateY(-2px);
+        }
+
+        /* Seção Nossas Soluções */
+        .solutions {
+            padding: 6rem 5%;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .solutions h2 {
+            font-size: 2.2rem;
+            margin-bottom: 3rem;
+            font-weight: 800;
+        }
+
+        .grid-solutions {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .sol-card {
+            background: var(--bg-card);
+            padding: 2.5rem;
+            border-radius: 6px;
+            border: 1px solid var(--border-color);
+            transition: border-color 0.3s, transform 0.3s;
+        }
+
+        .sol-card:hover {
+            border-color: var(--primary-red);
+            transform: translateY(-5px);
+        }
+
+        .sol-card h4 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .sol-card p {
+            color: var(--text-gray);
+            font-size: 1rem;
+        }
+
+        /* Botão Flutuante */
+        .whatsapp-floating {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background-color: var(--success-green);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            z-index: 1000;
+            transition: transform 0.3s;
+        }
+
+        .whatsapp-floating:hover {
+            transform: scale(1.1);
+        }
+
+        .whatsapp-floating svg {
+            width: 32px;
+            height: 32px;
+            fill: white;
+        }
+
+        /* Footer */
+        footer {
+            background: #050505;
+            padding: 4rem 5% 2rem;
+            font-size: 0.9rem;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-gray);
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-info max-width: 400px;
+
+        .footer-info h4 {
+            font-size: 1.1rem;
+            color: var(--text-white);
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .footer-info a {
+            color: var(--text-gray);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-info a:hover {
+            color: var(--primary-red);
+        }
+
+        .copyright {
+            text-align: center;
+            font-size: 0.8rem;
+            opacity: 0.6;
+            border-top: 1px solid var(--border-color);
+            padding-top: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero { padding: 4rem 5%; }
+            .hero-text h1 { font-size: 2.3rem; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navegação -->
+    <nav>
+        <div class="logo">Bezerra Santos <span>Imobiliária & Consignados</span></div>
+        <div class="nav-links">
+            <a href="#simulador">Simulação</a>
+            <a href="#solucoes">Nossas Soluções</a>
+            <a href="https://wa.me" target="_blank" class="btn-nav-whats">Falar com Atendimento</a>
+        </div>
+    </nav>
+
+    <!-- Principal -->
+    <section class="hero">
+        <div class="hero-text">
+            <h1>O dinheiro que você precisa, com a tradição <span>que você já conhece.</span></h1>
+            <p>A Bezerra Santos Imobiliária te ajuda a conquistar seus objetivos com as melhores soluções de consignado e mercado imobiliário.</p>
+        </div>
+
+        <div class="simulador-box" id="simulador">
